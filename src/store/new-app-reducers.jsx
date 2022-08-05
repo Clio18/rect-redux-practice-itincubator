@@ -4,8 +4,7 @@ const SEND_MESSAGE = "SEND_MESSAGE";
 export let postReducer = (state, action) => {
   switch (action.type) {
     case UPDATE_MESSAGE:
-      let body = action.text;
-      state.newMessage = body;
+      state.newMessage = action.text;
       return state;
     case SEND_MESSAGE:
       state.messages.push(state.newMessage);
