@@ -1,7 +1,12 @@
 const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 const SEND_MESSAGE = "SEND_MESSAGE";
 
-export let postReducer = (state, action) => {
+let initialState = {
+  messages: [],
+  newMessage: "",
+};
+
+export let postReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_MESSAGE:
       state.newMessage = action.text;
