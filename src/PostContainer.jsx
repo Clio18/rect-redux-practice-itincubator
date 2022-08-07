@@ -10,12 +10,15 @@ function PostContainer() {
     <StoreContext.Consumer>
       {(store) => {
         let state = store.getState();
+
         let onUpdateMessage = (text) => {
           store.dispatch(updateMessageCreator(text));
         };
+
         let onSendMessage = () => {
           store.dispatch(sendMessageCreator());
         };
+
         return (
           <Post
             updateMessageFromContainer={onUpdateMessage}
