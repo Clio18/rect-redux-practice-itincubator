@@ -1,7 +1,7 @@
 import PostContainer from "./PostContainer";
 
-function App(props) {
-  return <PostContainer store={props.store} />;
+function App() {
+  return <PostContainer />;
 }
 
 export default App;
