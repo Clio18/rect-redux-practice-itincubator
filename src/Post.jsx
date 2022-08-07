@@ -1,17 +1,13 @@
 import classes from "./Post.module.css";
-import {
-  updateMessageCreator,
-  sendMessageCreator,
-} from "./store/new-app-reducers";
 
 function Post(props) {
   let updateMessageHandler = (event) => {
     let body = event.target.value;
-    props.store.dispatch(updateMessageCreator(body));
+    props.updateMessageFromContainer(body);
   };
 
   let sendMessageHandler = () => {
-    props.store.dispatch(sendMessageCreator());
+    props.sendMessageFromContainer();
   };
 
   return (
@@ -21,7 +17,7 @@ function Post(props) {
         <div className={classes.workarea_textarea}>
           <textarea
             placeholder="Add some message"
-            value={props.store._state.post.newMessage}
+            value={props.newMessageFromContainer}
             onChange={updateMessageHandler}
           />
         </div>
@@ -30,7 +26,7 @@ function Post(props) {
         </div>
         <div>
           <ul className={classes.workarea_list}>
-            {props.store._state.post.messages.map((el) => (
+            {props.messagesFromContainer.map((el) => (
               <li className={classes.list_item}>{el}</li>
             ))}
           </ul>
