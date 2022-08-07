@@ -3,33 +3,25 @@ import {
   sendMessageCreator,
 } from "./store/new-app-reducers";
 import Post from "./Post";
-import StoreContext from "./StoreContext";
+import { connect } from "react-redux";
 
-function PostContainer() {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState();
-
-        let onUpdateMessage = (text) => {
-          store.dispatch(updateMessageCreator(text));
-        };
-
-        let onSendMessage = () => {
-          store.dispatch(sendMessageCreator());
-        };
-
-        return (
-          <Post
-            updateMessageFromContainer={onUpdateMessage}
-            sendMessageFromContainer={onSendMessage}
-            newMessageFromContainer={state.post.newMessage}
-            messagesFromContainer={state.post.messages}
-          />
-        );
-      }}
-    </StoreContext.Consumer>
-  );
+function mapStateToProps(state) {
+  return {
+    newMessage: state.post.newMessage,
+    messages: state.post.messages,
+  };
 }
 
-export default PostContainer;
+function mapDispatchToProps(dispatch) {
+  return {
+    updateMessage: (text) => {
+      dispatch(updateMessageCreator(text));
+    },
+
+    sendMessage: () => {
+      dispatch(sendMessageCreator());
+    },
+  };
+}
+
+export const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post);

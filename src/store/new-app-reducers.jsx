@@ -7,14 +7,17 @@ let initialState = {
 };
 
 export let postReducer = (state = initialState, action) => {
+  let copyState = { ...state };
   switch (action.type) {
     case UPDATE_MESSAGE:
-      state.newMessage = action.text;
-      return state;
+      let message = action.text;
+      copyState.newMessage = message;
+      return copyState;
     case SEND_MESSAGE:
-      state.messages.push(state.newMessage);
-      state.newMessage = "";
-      return state;
+      copyState.messages = [...state.messages];
+      copyState.messages.push(state.newMessage);
+      copyState.newMessage = "";
+      return copyState;
     default:
       return state;
   }

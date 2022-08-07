@@ -1,6 +1,6 @@
-import PostContainer from "./PostContainer";
+import { PostContainer } from "./PostContainer";
 
-function App() {
+function App(props) {
   return <PostContainer />;
 }
 
