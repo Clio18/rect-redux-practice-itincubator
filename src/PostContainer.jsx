@@ -1,14 +1,14 @@
 import {
   updateMessageCreator,
+  updateTitleCreator,
   sendMessageCreator,
-} from "./store/new-app-reducers";
+} from "./store/post-reducers";
 import Post from "./Post";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
   return {
-    newMessage: state.post.newMessage,
-    messages: state.post.messages,
+    postCont: state.postPage,
   };
 }
 
@@ -16,6 +16,10 @@ function mapDispatchToProps(dispatch) {
   return {
     updateMessage: (text) => {
       dispatch(updateMessageCreator(text));
+    },
+
+    updateTitle: (text) => {
+      dispatch(updateTitleCreator(text));
     },
 
     sendMessage: () => {
