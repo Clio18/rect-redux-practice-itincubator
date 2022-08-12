@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from "redux";
-import { postReducer } from "./new-app-reducers";
+import { postReducer } from "./post-reducers";
+import { showPostsReducer } from "./show-posts-reducer";
 
 let reducers = combineReducers({
-  post: postReducer,
+  postPage: postReducer,
+  postsPage: showPostsReducer,
 });
 
 let store = createStore(reducers);
