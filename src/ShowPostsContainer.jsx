@@ -1,5 +1,5 @@
 import { setPostsCreator } from "./store/show-posts-reducer";
-import Posts from "./Posts";
+import AllPostsContainerAPI from "./AllPostsContainerAPI";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
@@ -19,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export const ShowPostsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Posts);
+)(AllPostsContainerAPI);

@@ -1,17 +1,6 @@
-import * as axios from "axios";
 import { Link } from "react-router-dom";
 
-let Posts = (props) => {
-  if (props.postsCont.newPosts.length === 0) {
-    console.log("HERE!");
-    axios
-      .get("https://post-model-default-rtdb.firebaseio.com/post.json")
-      .then((res) => {
-        const data = Object.values(res.data);
-        props.setShowPosts(data);
-      });
-  }
-
+let AllPosts = (props) => {
   return (
     <div>
       <div>
@@ -24,9 +13,11 @@ let Posts = (props) => {
               <li key={p.id}>
                 {
                   <div>
-                    <div>{p.newTitle}</div>
+                    <div style={{ fontWeight: "bold" }}>{p.newTitle}</div>
                     <div>{p.newMessage}</div>
-                    <div>{p.time}</div>
+                    <div style={{ fontStyle: "italic", fontWeight: "lighter" }}>
+                      {p.time}
+                    </div>
                   </div>
                 }
               </li>
@@ -38,4 +29,4 @@ let Posts = (props) => {
   );
 };
 
-export default Posts;
+export default AllPosts;
