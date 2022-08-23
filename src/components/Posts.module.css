@@ -9,3 +9,7 @@
   justify-self: left;
   text-transform: uppercase;
 }
+
+.selectedPage {
+  font-weight: bold;
+}

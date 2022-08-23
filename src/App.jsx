@@ -1,5 +1,5 @@
-import { PostContainer } from "./PostContainer";
-import { ShowPostsContainer } from "./ShowPostsContainer";
+import { PostContainer } from "./components/PostContainer";
+import { ShowPostsContainer } from "./components/ShowPostsContainer";
 import { Routes, Route } from "react-router-dom";
 
 let App = (props) => {
