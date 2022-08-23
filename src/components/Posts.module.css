@@ -1,0 +1,11 @@
+.workarea_list {
+  margin: 0.2rem 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.list_item {
+  font-size: 12px;
+  justify-self: left;
+  text-transform: uppercase;
+}
