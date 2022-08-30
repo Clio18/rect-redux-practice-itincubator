@@ -3,6 +3,7 @@ import {
   setCurrentPage,
   setPostsForPage,
   setTotalPostsCount,
+  setIsFetching,
 } from "../store/show-posts-reducer";
 import AllPostsContainerAPI from "./AllPostsContainerAPI";
 import { connect } from "react-redux";
@@ -14,6 +15,7 @@ function mapStateToProps(state) {
     totalPostsCount: state.postsPage.totalPostsCount,
     currentPage: state.postsPage.currentPage,
     postsForPage: state.postsPage.postsForPage,
+    isFetching: state.postsPage.isFetching,
   };
 }
 
@@ -22,4 +24,5 @@ export const ShowPostsContainer = connect(mapStateToProps, {
   setPostsForPage,
   setCurrentPage,
   setTotalPostsCount,
+  setIsFetching,
 })(AllPostsContainerAPI);

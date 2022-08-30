@@ -2,6 +2,7 @@ const SET_POSTS = "SET_POSTS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_POST_COUNT = "SET_TOTAL_POST_COUNT";
 const SET_POSTS_FOR_PAGE = "SET_POSTS_FOR_PAGE";
+const SET_IS_FETCHING = "SET_IS_FETCHING";
 
 let initialState = {
   posts: [],
@@ -9,6 +10,7 @@ let initialState = {
   pageSize: 3,
   totalPostsCount: 0,
   currentPage: 1,
+  isFetching: false,
 };
 
 export let showPostsReducer = (state = initialState, action) => {
@@ -21,6 +23,8 @@ export let showPostsReducer = (state = initialState, action) => {
       return { ...state, totalPostsCount: action.totalPostsCount };
     case SET_POSTS_FOR_PAGE:
       return { ...state, postsForPage: action.postsForPage };
+    case SET_IS_FETCHING:
+      return { ...state, isFetching: action.isFetching };
     default:
       return state;
   }
@@ -51,5 +55,12 @@ export let setTotalPostsCount = (totalPostsCount) => {
   return {
     type: SET_TOTAL_POST_COUNT,
     totalPostsCount,
+  };
+};
+
+export let setIsFetching = (isFetching) => {
+  return {
+    type: SET_IS_FETCHING,
+    isFetching,
   };
 };
