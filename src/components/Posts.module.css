@@ -13,3 +13,7 @@
 .selectedPage {
   font-weight: bold;
 }
+
+span {
+  margin-left: 40px;
+}

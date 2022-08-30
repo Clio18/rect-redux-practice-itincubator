@@ -5,9 +5,7 @@ import AllPosts from "./AllPosts";
 class AllPostsContainerAPI extends React.Component {
   componentDidMount() {
     axios
-      .get(
-        `https://post-model-default-rtdb.firebaseio.com/post.json?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
+      .get(`https://post-model-default-rtdb.firebaseio.com/post.json?`)
       .then((res) => {
         const data = Object.values(res.data);
         this.props.setShowPosts(data);
@@ -16,13 +14,18 @@ class AllPostsContainerAPI extends React.Component {
 
   onPageChaned(p) {
     this.props.setCurrentPage(p);
+
+    let pageSize = this.props.pageSize;
+    let index = (p - 1) * pageSize;
+    let startingTime = this.props.posts[index].time;
+
     axios
       .get(
-        `https://post-model-default-rtdb.firebaseio.com/post.json?page=${p}&count=${this.props.pageSize}`
+        `https://post-model-default-rtdb.firebaseio.com/post.json?orderBy="time"&startAt="${startingTime}"&limitToFirst=${pageSize}`
       )
       .then((res) => {
         const data = Object.values(res.data);
-        this.props.setShowPosts(data);
+        this.props.setPostsForPage(data);
       });
   }
 

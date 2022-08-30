@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import classes from "./Posts.module.css";
 
 let AllPosts = (props) => {
+  let array = props.props.postsForPage;
+  if (array.length === 0) {
+    array = props.props.posts;
+  }
+
   return (
     <>
       <div>
@@ -24,7 +29,7 @@ let AllPosts = (props) => {
       </div>
       <div>
         <div>
-          {props.props.posts.map((p) => {
+          {array.map((p) => {
             return (
               <ul key={Math.random()}>
                 <li key={p.id}>
