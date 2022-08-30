@@ -25,21 +25,21 @@ export let showPostsReducer = (state = initialState, action) => {
   }
 };
 
-export let setPostsCreator = (posts) => {
+export let setShowPosts = (posts) => {
   return {
     type: SET_POSTS,
     posts,
   };
 };
 
-export let setPostsForPageCreator = (postsForPage) => {
+export let setPostsForPage = (postsForPage) => {
   return {
     type: SET_POSTS_FOR_PAGE,
     postsForPage,
   };
 };
 
-export let setPageNumberCreator = (currentPage) => {
+export let setCurrentPage = (currentPage) => {
   return {
     type: SET_CURRENT_PAGE,
     currentPage: currentPage,

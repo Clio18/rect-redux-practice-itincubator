@@ -1,7 +1,7 @@
 import {
-  setPostsCreator,
-  setPageNumberCreator,
-  setPostsForPageCreator,
+  setShowPosts,
+  setCurrentPage,
+  setPostsForPage,
 } from "../store/show-posts-reducer";
 import AllPostsContainerAPI from "./AllPostsContainerAPI";
 import { connect } from "react-redux";
@@ -16,21 +16,8 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    setShowPosts: (posts) => {
-      dispatch(setPostsCreator(posts));
-    },
-    setPostsForPage: (postsForPage) => {
-      dispatch(setPostsForPageCreator(postsForPage));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setPageNumberCreator(pageNumber));
-    },
-  };
-}
-
-export const ShowPostsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AllPostsContainerAPI);
+export const ShowPostsContainer = connect(mapStateToProps, {
+  setShowPosts,
+  setPostsForPage,
+  setCurrentPage,
+})(AllPostsContainerAPI);
