@@ -2,6 +2,7 @@ import {
   setShowPosts,
   setCurrentPage,
   setPostsForPage,
+  setTotalPostsCount,
 } from "../store/show-posts-reducer";
 import AllPostsContainerAPI from "./AllPostsContainerAPI";
 import { connect } from "react-redux";
@@ -20,4 +21,5 @@ export const ShowPostsContainer = connect(mapStateToProps, {
   setShowPosts,
   setPostsForPage,
   setCurrentPage,
+  setTotalPostsCount,
 })(AllPostsContainerAPI);

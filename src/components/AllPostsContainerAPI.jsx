@@ -9,6 +9,7 @@ class AllPostsContainerAPI extends React.Component {
       .then((res) => {
         const data = Object.values(res.data);
         this.props.setShowPosts(data);
+        this.props.setTotalPostsCount(data.length);
       });
   }
 

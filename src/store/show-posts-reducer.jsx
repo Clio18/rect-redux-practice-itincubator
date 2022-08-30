@@ -1,14 +1,13 @@
 const SET_POSTS = "SET_POSTS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_POST_COUNT = "SET_TOTAL_POST_COUNT";
 const SET_POSTS_FOR_PAGE = "SET_POSTS_FOR_PAGE";
 
 let initialState = {
   posts: [],
-
   postsForPage: [],
-
   pageSize: 3,
-  totalPostsCount: 13,
+  totalPostsCount: 0,
   currentPage: 1,
 };
 
@@ -18,6 +17,8 @@ export let showPostsReducer = (state = initialState, action) => {
       return { ...state, posts: action.posts };
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
+    case SET_TOTAL_POST_COUNT:
+      return { ...state, totalPostsCount: action.totalPostsCount };
     case SET_POSTS_FOR_PAGE:
       return { ...state, postsForPage: action.postsForPage };
     default:
@@ -43,5 +44,12 @@ export let setCurrentPage = (currentPage) => {
   return {
     type: SET_CURRENT_PAGE,
     currentPage: currentPage,
+  };
+};
+
+export let setTotalPostsCount = (totalPostsCount) => {
+  return {
+    type: SET_TOTAL_POST_COUNT,
+    totalPostsCount,
   };
 };
