@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import classes from "./Posts.module.css";
+import classes from "./AllPosts.module.css";
 
 let AllPosts = (props) => {
   let array = props.props.postsForPage;
