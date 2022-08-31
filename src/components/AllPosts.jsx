@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import classes from "./AllPosts.module.css";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 let AllPosts = (props) => {
   let array = props.props.postsForPage;
@@ -9,9 +11,9 @@ let AllPosts = (props) => {
 
   return (
     <>
-      <div>
+      <Button variant="text" style={{ marginLeft: 30 }}>
         <Link to="/input">Get Back</Link>
-      </div>
+      </Button>
       <div>
         {props.pages.map((p) => {
           return (
@@ -35,12 +37,20 @@ let AllPosts = (props) => {
                 <li key={p.id}>
                   {
                     <div>
-                      <div style={{ fontWeight: "bold" }}>{p.newTitle}</div>
-                      <div>{p.newMessage}</div>
-                      <div
-                        style={{ fontStyle: "italic", fontWeight: "lighter" }}
-                      >
-                        {p.time}
+                      <div>
+                        <Typography style={{ fontWeight: "bold" }}>
+                          {p.newTitle}
+                        </Typography>
+                      </div>
+                      <div>
+                        <Typography variant="h8">{p.newMessage}</Typography>
+                      </div>
+                      <div>
+                        <Typography
+                          style={{ fontStyle: "italic", fontWeight: "lighter" }}
+                        >
+                          {p.time}
+                        </Typography>
                       </div>
                     </div>
                   }
