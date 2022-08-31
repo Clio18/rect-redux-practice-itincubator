@@ -1,19 +1,18 @@
 import React from "react";
-import * as axios from "axios";
 import AllPosts from "./AllPosts";
 import Loader from "./Loader";
+import { postsDAL } from "../api/apiDAL";
 
 class AllPostsContainerAPI extends React.Component {
   componentDidMount() {
     this.props.setIsFetching(true);
-    axios
-      .get(`https://post-model-default-rtdb.firebaseio.com/post.json?`)
-      .then((res) => {
-        const data = Object.values(res.data);
-        this.props.setIsFetching(false);
-        this.props.setShowPosts(data);
-        this.props.setTotalPostsCount(data.length);
-      });
+
+    postsDAL.getPosts().then((res) => {
+      const data = Object.values(res.data);
+      this.props.setIsFetching(false);
+      this.props.setShowPosts(data);
+      this.props.setTotalPostsCount(data.length);
+    });
   }
 
   onPageChaned(p) {
@@ -24,15 +23,11 @@ class AllPostsContainerAPI extends React.Component {
     let index = (p - 1) * pageSize;
     let startingTime = this.props.posts[index].time;
 
-    axios
-      .get(
-        `https://post-model-default-rtdb.firebaseio.com/post.json?orderBy="time"&startAt="${startingTime}"&limitToFirst=${pageSize}`
-      )
-      .then((res) => {
-        this.props.setIsFetching(false);
-        const data = Object.values(res.data);
-        this.props.setPostsForPage(data);
-      });
+    postsDAL.getShowPosts(startingTime, pageSize).then((res) => {
+      const data = Object.values(res.data);
+      this.props.setIsFetching(false);
+      this.props.setPostsForPage(data);
+    });
   }
 
   render() {
