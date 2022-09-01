@@ -22,7 +22,7 @@ function Post(props) {
   return (
     <div className={classes.container}>
       <Typography variant="h5" className={classes.container_header}>
-        Hello
+        Books
       </Typography>
       <div className={classes.container_workarea}>
         <div className={classes.workarea_input}>
@@ -31,14 +31,17 @@ function Post(props) {
             margin="dense"
             label="Title"
             size="small"
+            variant="filled"
+            color="secondary"
             value={props.postCont.newPost.newTitle}
             onChange={updateTitleHandler}
           />
         </div>
         <div className={classes.workarea_textarea}>
           <TextField
-            label="Message"
+            label="Description"
             size="normal"
+            variant="filled"
             value={props.postCont.newPost.newMessage}
             onChange={updateMessageHandler}
           />
@@ -55,7 +58,7 @@ function Post(props) {
         </div>
         <div className={classes.workarea_link}>
           <Link to="/posts" style={{ textDecoration: "none" }}>
-            Show all posts
+            Show all books
           </Link>
         </div>
       </div>

@@ -3,7 +3,7 @@ import {
   updateTitleCreator,
   sendMessageCreator,
 } from "../store/post-reducers";
-import Post from "./Post";
+import PostMUI from "./PostMUI";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
@@ -28,4 +28,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post);
+export const PostContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostMUI);
