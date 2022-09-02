@@ -1,7 +1,7 @@
-import React from "react";
-import AllPosts from "./AllPosts";
-import Loader from "./Loader";
-import { postsDAL } from "../api/apiDAL";
+import React from 'react';
+import AllPosts from './AllPosts';
+import Loader from './Loader';
+import { postsDAL } from '../api/apiDAL';
 
 class AllPostsContainerAPI extends React.Component {
   componentDidMount() {

@@ -1,7 +1,7 @@
-import * as axios from "axios";
+import * as axios from 'axios';
 
 const instance = axios.create({
-  baseURL: "https://post-model-default-rtdb.firebaseio.com/post.json",
+  baseURL: 'https://post-model-default-rtdb.firebaseio.com/post.json',
 });
 
 export const postsDAL = {
@@ -10,7 +10,7 @@ export const postsDAL = {
   },
   getShowPosts(startingTime, pageSize) {
     return instance.get(
-      `?orderBy="time"&startAt="${startingTime}"&limitToFirst=${pageSize}`
+      `?orderBy="time"&startAt="${startingTime}"&limitToFirst=${pageSize}`,
     );
   },
 };

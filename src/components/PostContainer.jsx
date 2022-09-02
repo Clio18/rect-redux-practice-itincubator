@@ -2,9 +2,9 @@ import {
   updateMessageCreator,
   updateTitleCreator,
   sendMessageCreator,
-} from "../store/post-reducers";
-import PostMUI from "./PostMUI";
-import { connect } from "react-redux";
+} from '../store/post-reducers';
+import PostMUI from './PostMUI';
+import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {

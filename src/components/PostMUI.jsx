@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import { Stack } from "@mui/material";
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import { Stack } from '@mui/material';
 
 function PostMUI(props) {
   const updateMessageHandler = (event) => {
@@ -64,7 +64,7 @@ function PostMUI(props) {
         </Button>
         <Link
           to="/posts"
-          style={{ textDecoration: "none", textTransform: "uppercase" }}
+          style={{ textDecoration: 'none', textTransform: 'uppercase' }}
         >
           Show all books
         </Link>

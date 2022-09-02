@@ -1,6 +1,6 @@
-import { combineReducers, createStore } from "redux";
-import { postReducer } from "./post-reducers";
-import { showPostsReducer } from "./show-posts-reducer";
+import { combineReducers, createStore } from 'redux';
+import { postReducer } from './post-reducers';
+import { showPostsReducer } from './show-posts-reducer';
 
 let reducers = combineReducers({
   postPage: postReducer,

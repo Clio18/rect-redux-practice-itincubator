@@ -1,10 +1,10 @@
-import { postReducer } from "./new-app-reducers";
+import { postReducer } from './new-app-reducers';
 
 let store = {
   _state: {
     post: {
       messages: [],
-      newMessage: "",
+      newMessage: '',
     },
   },
 

@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import classes from "./AllPosts.module.css";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import classes from './AllPosts.module.css';
 
-let AllPosts = (props) => {
+const AllPosts = function (props) {
   let array = props.props.postsForPage;
   if (array.length === 0) {
     array = props.props.posts;
@@ -19,7 +19,7 @@ let AllPosts = (props) => {
           return (
             <span
               key={p}
-              className={props.currentPage === p ? classes.selectedPage : ""}
+              className={props.currentPage === p ? classes.selectedPage : ''}
               onClick={() => {
                 props.onPageChaned(p);
               }}
@@ -38,7 +38,7 @@ let AllPosts = (props) => {
                   {
                     <div>
                       <div>
-                        <Typography style={{ fontWeight: "bold" }}>
+                        <Typography style={{ fontWeight: 'bold' }}>
                           {p.newTitle}
                         </Typography>
                       </div>
@@ -47,7 +47,7 @@ let AllPosts = (props) => {
                       </div>
                       <div>
                         <Typography
-                          style={{ fontStyle: "italic", fontWeight: "lighter" }}
+                          style={{ fontStyle: 'italic', fontWeight: 'lighter' }}
                         >
                           {p.time}
                         </Typography>

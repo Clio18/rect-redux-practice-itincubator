@@ -1,12 +1,12 @@
-const UPDATE_MESSAGE = "UPDATE_MESSAGE";
-const UPDATE_TITLE = "UPDATE_TITLE";
-const SEND_MESSAGE = "SEND_MESSAGE";
+const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
+const UPDATE_TITLE = 'UPDATE_TITLE';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
   newPost: {
-    id: "",
-    newTitle: "",
-    newMessage: "",
+    id: '',
+    newTitle: '',
+    newMessage: '',
   },
 };
 
@@ -24,12 +24,12 @@ export let postReducer = (state = initialState, action) => {
     case SEND_MESSAGE:
       var today = new Date();
       var time =
-        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
-      const axios = require("axios").default;
+      const axios = require('axios').default;
       axios({
-        method: "post",
-        url: "https://post-model-default-rtdb.firebaseio.com/post.json",
+        method: 'post',
+        url: 'https://post-model-default-rtdb.firebaseio.com/post.json',
         data: {
           id: Math.floor(Math.random() * 1000000000 + 1),
           newMessage: copyState.newPost.newMessage,
@@ -38,8 +38,8 @@ export let postReducer = (state = initialState, action) => {
         },
       });
 
-      copyState.newPost.newMessage = "";
-      copyState.newPost.newTitle = "";
+      copyState.newPost.newMessage = '';
+      copyState.newPost.newTitle = '';
       return copyState;
     default:
       return copyState;

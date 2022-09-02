@@ -1,8 +1,8 @@
-import { PostContainer } from "./components/PostContainer";
-import { ShowPostsContainer } from "./components/ShowPostsContainer";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
+import { PostContainer } from './components/PostContainer';
+import { ShowPostsContainer } from './components/ShowPostsContainer';
 
-let App = (props) => {
+const App = function () {
   return (
     <Routes>
       <Route path="/input" element={<PostContainer />} />;

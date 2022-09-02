@@ -4,9 +4,9 @@ import {
   setPostsForPage,
   setTotalPostsCount,
   setIsFetching,
-} from "../store/show-posts-reducer";
-import AllPostsContainerAPI from "./AllPostsContainerAPI";
-import { connect } from "react-redux";
+} from '../store/show-posts-reducer';
+import AllPostsContainerAPI from './AllPostsContainerAPI';
+import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
